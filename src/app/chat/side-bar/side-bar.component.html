@@ -1,4 +1,4 @@
-<div class="w-full h-full flex justify-start items-center flex-col p-2 text-text-static gap-4">
+<div class="w-full h-full flex justify-start items-center flex-col p-2 text-light gap-4">
     <div class="header w-full h-[8%] flex justify-between items-center">
         <span
             class="hover:bg-message-surface p-2 rounded-full cursor-pointer transition-colors ease-linear duration-300">
@@ -20,7 +20,7 @@
     <div class="w-full h-[100px] flex justify-start items-center flex-col gap-4">
         <div 
         (click)="newChat()"
-            class="flex justify-start items-center w-full gap-4 text-lg cursor-pointer hover:bg-message-surface p-1.5 rounded-lg trans ">
+            class="flex justify-start items-center w-full gap-4 text-lg cursor-pointer hover:bg-bg-primary hover:text-text-static p-1.5 rounded-lg trans ">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -35,13 +35,13 @@
     </div>
     <div class="h-max w-full flex justify-start items-center flex-col gap-4">
         <div class="w-full h-max p-2">
-            <p class="text-left text-lg text-text-static/65">Historic</p>
+            <p class="text-left text-lg text-bg-primary/65">Historic</p>
         </div>
 
         <div class="historic w-full h-max flex justify-start items-center flex-col gap-2">
             @for (item of allTheme(); track $index) {
             <div (click)="clickHistoric(item.session)"
-                class="flex justify-start items-center w-full gap-4 text-lg cursor-pointer hover:bg-message-surface rounded-lg trans px-2 py-1">
+                class="flex justify-start items-center w-full gap-4 text-lg cursor-pointer  hover:bg-bg-primary hover:text-text-static  rounded-lg trans px-2 py-1">
                 <span class="text-[1rem]">
                     <markdown> {{item.theme | truncate}}</markdown>
                 </span>

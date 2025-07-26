@@ -1,0 +1,52 @@
+<div class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-md">
+    <!-- En-tête avec personnage réfléchi -->
+    <div class="bg-gray-900 p-6 text-white flex items-center">
+      <div class="bg-gray-200 rounded-full w-16 h-16 flex items-center justify-center mr-4">
+        <i class="fas fa-brain text-gray-800 text-3xl"></i>
+      </div>
+      <div>
+        <h1 class="text-2xl font-bold">Calculatrice Réfléchie</h1>
+        <p class="text-blue-100">Je réfléchis avant de répondre...</p>
+      </div>
+    </div>
+
+    <!-- Zone d'affichage -->
+    <div class="p-6 bg-gray-50">
+      <div class="calculator-bubble" id="calculation-display" [innerHTML]="calculationMessage"></div>
+
+      <div class="thinking-dots mt-4" *ngIf="thinking">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+      <div class="calculator-bubble bg-gray-100 mt-4" id="result-display" [innerHTML]="resultContent" *ngIf="showResult"></div>
+    </div>
+
+    <!-- Clavier de la calculatrice -->
+    <div class="grid grid-cols-4 gap-3 p-6 bg-gray-50">
+      <button class="btn-number bg-gray-50 rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-200 transition" (click)="appendToDisplay('7')">7</button>
+      <button class="btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 transition" (click)="appendToDisplay('8')">8</button>
+      <button class="btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 transition" (click)="appendToDisplay('9')">9</button>
+      <button class="btn-operation bg-blue-100 text-blue-600 rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-blue-200" (click)="clearDisplay()">C</button>
+
+      <button class="btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 transition" (click)="appendToDisplay('4')">4</button>
+      <button class="btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 transition" (click)="appendToDisplay('5')">5</button>
+      <button class="btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 transition" (click)="appendToDisplay('6')">6</button>
+      <button class="btn-operation bg-blue-100 text-blue-600 rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-blue-200" (click)="appendToDisplay('+')">+</button>
+
+      <button class="btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 transition" (click)="appendToDisplay('1')">1</button>
+      <button class="btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 transition" (click)="appendToDisplay('2')">2</button>
+      <button class="btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 transition" (click)="appendToDisplay('3')">3</button>
+      <button class="btn-operation" (click)="appendToDisplay('-')">-</button>
+
+      <button class="btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 transition" (click)="appendToDisplay('0')">0</button>
+      <button class="btn-number bg-white rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-gray-100 transition" (click)="appendToDisplay('.')">.</button>
+      <button class="btn-operation bg-blue-100 text-blue-600 rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-blue-200" (click)="appendToDisplay('×')">×</button>
+      <button class="btn-operation bg-blue-100 text-blue-600 rounded-lg p-4 text-xl font-medium shadow-sm hover:bg-blue-200" (click)="appendToDisplay('÷')">÷</button>
+
+      <button class="col-span-4 btn-equals rounded-lg p-4 text-xl font-bold shadow-md mt-2" (click)="calculate()">=</button>
+    </div>
+  </div>
+</div>

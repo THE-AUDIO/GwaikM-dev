@@ -1,0 +1,71 @@
+        .calculator-bubble {
+            position: relative;
+            background-color: #f3f4f6;
+            border-radius: 50px;
+            padding: 15px 25px;
+            margin: 10px 0;
+            max-width: 80%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calculator-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: #f3f4f6 transparent;
+        }
+        
+        .thinking-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #4b5563;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+        
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .btn-operation {
+            transition: all 0.3s ease;
+            background-color: #e5e7eb;
+            color: #111827;
+        }
+        
+        .btn-operation:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #d1d5db;
+        }
+        
+        .btn-equals {
+            background: linear-gradient(135deg, #4b5563, #111827);
+            color: white;
+        }
+        
+        .btn-equals:hover {
+            background: linear-gradient(135deg, #111827, #4b5563);
+        }
