@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Boîte à Inutile - Dark Edition</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+  body {
+    background: #111;
+    color: #eee;
+    font-family: 'Fredericka the Great', cursive, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  h1 {
+    font-size: 4em;
+    margin-bottom: 0.5em;
+    text-shadow: 0 0 20px #ff0000;
+  }
+
+  #box {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, #8b0000, #330000);
+    border-radius: 25px;
+    box-shadow: 0 0 40px #ff0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.5s ease;
+  }
+
+  #box.open {
+    transform: rotateY(180deg) scale(1.2);
+    box-shadow: 0 0 100px #ff0000;
+  }
+
+  #box:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 140px;
+    height: 140px;
+    background: #220000;
+    border-radius: 20px;
+    box-shadow: inset 0 0 30px #ff0000;
+    transition: background 0.5s;
+  }
+
+  #box.open:before {
+    background: #330000;
+    box-shadow: inset 0 0 60px #ff0000;
+  }
+
+  #word {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff4444;
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+    user-select: none;
+    text-shadow:
+      0 0 15px #ff4444,
+      0 0 30px #ff0000;
+    transition: transform 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    max-width: 260px;
+    text-align: center;
+  }
+
+  #word.show {
+    transform: translate(-50%, -50%) scale(1.3) rotate(-8deg);
+    animation: shake 1.2s infinite alternate ease-in-out;
+  }
+
+  @keyframes shake {
+    0% { transform: translate(-50%, -50%) scale(1.3) rotate(-8deg); }
+    100% { transform: translate(calc(-50% + 8px), calc(-50% + 4px)) scale(1.25) rotate(7deg); }
+  }
+
+  /* Confetti effect - rouges sombres */
+  .confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: #aa0000;
+    opacity: 0.8;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fall 3s linear forwards;
+    mix-blend-mode: screen;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  #instruction {
+    margin-top: 1.2em;
+    font-size: 1.2em;
+    color: #bbb;
+    font-style: italic;
+    max-width: 400px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Boîte à Inutile</h1>
+  <div id="box" title="Clique pour une blague vraiment dark"></div>
+  <div id="word"></div>
+  <div id="instruction">Clique sur la boîte pour une blague dark inutile.</div>
+
+  <script>
+    const box = document.getElementById('box');
+    const wordDiv = document.getElementById('word');
+    const instruction = document.getElementById('instruction');
+
+    const jeuxDeMots = [
+      "Je suis un légume, mais je suis dans le fruit de la discussion.",
+      "Un poisson sans eau, c’est juste un poisson d’avril.",
+      "Si tu marches sur un gâteau, tu fais une pâté…",
+      "Mieux vaut tard que patate.",
+      "Les étoiles filantes sont juste en train de courir un marathon galactique."
+    ];
+
+    // Blagues dark absurdes et plus incisives, sans être offensantes
+    const blaguesDark = [
+      "On m'a dit de suivre mes rêves, alors je suis retourné dormir… pour toujours.",
+      "Pourquoi les fantômes aiment-ils les cimetières ? Parce qu'ils ont enfin trouvé la paix éternelle, même si c’est un peu ennuyeux.",
+      "La mort est la seule fête à laquelle personne n'est jamais en retard.",
+      "Mon médecin m’a dit de vivre chaque jour comme si c’était le dernier. Ça explique mes siestes prolongées.",
+      "Pourquoi les cercueils ont-ils des poignées ? Pour que la vie continue de nous porter… au repos éternel.",
+      "J’ai demandé à la mort un autographe, elle m’a dit qu’elle m’attendait.",
+      "Si la vie est un jeu, la mort est le mode hardcore qu’on ne peut pas désactiver.",
+      "Le jour où j’ai arrêté de compter mes années, j’ai commencé à compter mes regrets.",
+      "J’ai un rendez-vous avec l’éternité. Devine qui sera à l’heure ?",
+      "Ils disent que rire est le meilleur remède, mais la mort ne rigole jamais."
+    ];
+
+    function randomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    function createConfetti() {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * window.innerWidth + 'px';
+      confetti.style.backgroundColor = `hsl(0, 100%, ${20 + Math.random() * 40}%)`;
+      confetti.style.width = confetti.style.height = (6 + Math.random() * 8) + 'px';
+      confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 3000);
+    }
+
+    function showWordAndJoke() {
+      const mot = jeuxDeMots[randomInt(jeuxDeMots.length)];
+      const blague = blaguesDark[randomInt(blaguesDark.length)];
+
+      wordDiv.textContent = mot;
+      instruction.textContent = blague;
+
+      wordDiv.classList.add('show');
+
+      for(let i = 0; i < 25; i++) {
+        setTimeout(createConfetti, i * 40);
+      }
+
+      setTimeout(() => {
+        wordDiv.classList.remove('show');
+        box.classList.remove('open');
+        setTimeout(() => {
+          instruction.textContent = "Clique sur la boîte pour une blague dark inutile.";
+        }, 7000);
+      }, 7000);
+    }
+
+    box.addEventListener('click', () => {
+      if(box.classList.contains('open')) return;
+
+      box.classList.add('open');
+      showWordAndJoke();
+    });
+  </script>
+
+</body>
+</html>
