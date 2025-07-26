@@ -1,11 +1,11 @@
 <body class="bg-white text-gray-900 min-h-screen font-sans">
     <!-- Audio element -->
-    <audio id="bgMusic" loop>
-        <source src="Homealone.mp3" type="audio/mpeg">
+    <audio #bgMusic id="bgMusic" loop>
+        <source src="audio/Homealone.mp3" type="audio/mpeg">
     </audio>
     
     <!-- Floating speaker button -->
-    <div id="speakerBtn" class="speaker-btn text-gray-800 text-2xl p-3 rounded-full bg-gray-200 shadow-lg">
+    <div #speakerBtn id="speakerBtn" class="speaker-btn text-gray-800 text-2xl p-3 rounded-full bg-gray-200 shadow-lg">
         <i class="fas fa-volume-up" id="volumeIcon"></i>
         <div class="absolute -inset-1 rounded-full border-2 border-gray-300 animate-ping opacity-75" style="animation-duration: 2s;"></div>
     </div>
@@ -58,7 +58,6 @@
                 <a class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 dog hidden">Wouf Wouf</a>
                 <a class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 cat hidden">Miaou Miaou</a>
             </div>
-            
             <!-- Tool 5 -->
             <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
                 <h2 class="text-2xl font-bold mb-3">Anti-Stress</h2>
@@ -222,6 +221,8 @@
         
         // Make speaker button run away from cursor
         speakerBtn.addEventListener('mouseover', function() {
+            console.log('speakerBtn');
+            
             const maxX = window.innerWidth - speakerBtn.offsetWidth;
             const maxY = window.innerHeight - speakerBtn.offsetHeight;
             
@@ -266,3 +267,5 @@
             speakerBtn.style.top = startY + 'px';
         });
     </script>
+</body>
+
