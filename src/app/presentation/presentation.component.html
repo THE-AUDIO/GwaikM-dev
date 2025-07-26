@@ -13,7 +13,7 @@
     <div class="container mx-auto px-4 py-8">
         <!-- Header -->
         <header class="text-center mb-12">
-            <h1 class="text-5xl font-bold mb-6">Boîte à <span class="tool-name">outil</span></h1>
+            <h1 class="text-10xl font-bold mb-6">Boîte à <span class="tool-name">outil</span></h1>
             <p class="text-gray-600 italic">Des outils si inutiles qu'ils en deviennent essentiels</p>
             
             <!-- Language selector -->
@@ -38,21 +38,10 @@
         
         <!-- Tools grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            <!-- Tool 1 -->
-            <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
-                <h2 class="text-2xl font-bold mb-3">Super Torch 9000</h2>
-                <p class="text-gray-700 mb-4 fr">Un projecteur de lumière si puissant qu'il éblouit même en plein jour. Parfait pour rien du tout.</p>
-                <p class="text-gray-700 mb-4 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
-                <p class="text-gray-700 mb-4 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
-                <a href="super-torch.html" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 fr">Allumer (ne fait rien)</a>
-                <a href="super-torch.html" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 dog hidden">Wouf Wouf</a>
-                <a href="super-torch.html" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 cat hidden">Miaou Miaou</a>
-            </div>
-            
             <!-- Tool 2 -->
             <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
-                <h2 class="text-2xl font-bold mb-3">Calculatrice</h2>
-                <p class="text-gray-700 mb-4 fr">Effectue des calculs aléatoires sans rapport avec vos besoins. Résultats garantis inexacts.</p>
+                <h2 class="text-2xl font-bold mb-3">Calculatrice Misy Rivotra</h2>
+                <p class="text-gray-700 mb-4 fr">Oh, tu veux vraiment faire ce calcul ? T'es sûr de toi ?" - La seule calculatrice qui vous juge pour vos opérations mathématiques.</p>
                 <p class="text-gray-700 mb-4 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
                 <p class="text-gray-700 mb-4 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
                 <a (click)="gotoTool('calc')" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 fr">Calculer (ne fait rien)</a>
@@ -60,6 +49,7 @@
                 <a class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 cat hidden">Miaou Miaou</a>
             </div>
             
+<<<<<<< HEAD
             <!-- Tool 3 -->
             <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
                 <h2 class="text-2xl font-bold mb-3">Vertigo Man</h2>
@@ -71,10 +61,12 @@
                 <a  class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 cat hidden">Miaou Miaou</a>
             </div>
             
+=======
+>>>>>>> 2797de0dee3310b834eb5b4629d9c6bea2e6a960
             <!-- Tool 4 -->
             <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
                 <h2 class="text-2xl font-bold mb-3">Obi Wagwan</h2>
-                <p class="text-gray-700 mb-4 fr">Générateur de phrases pseudo-mystiques sans aucun sens. Sagesse aléatoire incluse.</p>
+                <p class="text-gray-700 mb-4 fr">Chatbot de Obi-Wan Kenobi version jamaïcaine. "Y mon, la Force elle strong avec toi" et autres perles de sagesse rasta.</p>
                 <p class="text-gray-700 mb-4 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
                 <p class="text-gray-700 mb-4 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
                 <a (click)="gotoTool('chat')" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 fr">Éclairer (ne fait rien)</a>
@@ -85,7 +77,7 @@
             <!-- Tool 5 -->
             <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
                 <h2 class="text-2xl font-bold mb-3">Anti-Stress</h2>
-                <p class="text-gray-700 mb-4 fr">Crée artificiellement des situations stressantes pour vous préparer aux vraies. Paradoxe inclus.</p>
+                <p class="text-gray-700 mb-4 fr">Cliquez et découvrez la surprise ! (Peut être un chaton mignon... ou une image de votre pire phobie. On ne sait jamais.)</p>
                 <p class="text-gray-700 mb-4 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
                 <p class="text-gray-700 mb-4 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
                 <a (click)="this.gotoTool('stress')" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 fr">Stresser (ne fait rien)</a>
@@ -117,7 +109,7 @@
                         <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center mr-2">
                             <i class="fas fa-user text-gray-600"></i>
                         </div>
-                        <span class="font-bold fr">Jean-Dupont</span>
+                        <span class="font-bold fr">Sponge Bob</span>
                         <span class="font-bold dog hidden">Wouf</span>
                         <span class="font-bold cat hidden">Miaou</span>
                         <div class="ml-auto flex">
@@ -139,7 +131,7 @@
                         <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center mr-2">
                             <i class="fas fa-user text-gray-600"></i>
                         </div>
-                        <span class="font-bold fr">Marie-Tournevis</span>
+                        <span class="font-bold fr">Homer Simpson</span>
                         <span class="font-bold dog hidden">Wouf Wouf</span>
                         <span class="font-bold cat hidden">Miaou Miaou</span>
                         <div class="ml-auto flex">
@@ -161,7 +153,7 @@
                         <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center mr-2">
                             <i class="fas fa-user text-gray-600"></i>
                         </div>
-                        <span class="font-bold fr">Bob-L'Éponge</span>
+                        <span class="font-bold fr">Athanos25537</span>
                         <span class="font-bold dog hidden">Wouf Wouf Wouf</span>
                         <span class="font-bold cat hidden">Miaou Miaou Miaou</span>
                         <div class="ml-auto flex">
