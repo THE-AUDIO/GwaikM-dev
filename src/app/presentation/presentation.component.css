@@ -1,0 +1,28 @@
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .spinning-star {
+            animation: spin 2s linear infinite;
+        }
+        .alien-font {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            letter-spacing: 2px;
+        }
+        .cat-font {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        .flipped {
+            transform: scaleX(-1);
+        }
+        .glow {
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073;
+            }
+            to {
+                box-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6;
+            }
+        }
