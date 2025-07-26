@@ -9,7 +9,7 @@ import { environment } from "../../../environments/environment.development";
     providedIn: 'root'
 })
 export class ChatService {
-    currentSession = signal(0);
+    currentSession = signal(1);
     private http = inject(HttpClient)
     apiUrl = environment.apiURL;
     allTheme = signal<ThemDto[]>([] as ThemDto[]);
@@ -58,9 +58,11 @@ export class ChatService {
             tap((val: any) => {
                 const len = val.themes.length;
                 if (len==0) {
-                    localStorage.setItem('nandra-session','0')
+                    localStorage.setItem('nandra-session','1')
                 } else{
-                    this.currentSession.set(val.themes[len - 1].session)
+                    console.log(val.themes[len-1]);
+                    
+                    this.currentSession.set(val.themes[len-1].session)
                     this.allTheme.set(val.themes)
                     console.log(this.currentSession());
                 }

@@ -56,6 +56,7 @@ export class MessageComponent implements OnInit, OnChanges {
         })
       ).subscribe((data: any) => {
         this.welcomeMessage.set(data.message);
+        this.noQuestionSendState = false;
         this.reponseState = false;
       });
     }
@@ -126,21 +127,17 @@ export class MessageComponent implements OnInit, OnChanges {
     const file = this.file; // Assure-toi que ce champ est bien défini quelque part
     const question = this.formGroup.value.message;
 
-    // 🔁 Crée un nouveau message à afficher immédiatement
     const newMessage = new AddMessage();
     newMessage.question = question;
 
-    // 🔢 Gestion de session
     const session = this.chatService.currentSession() + 1;
     newMessage.session = session;
     this.message.session = session;
     this.message.question = question;
     localStorage.setItem("nandra-session", session.toString());
     this.chatService.AddMessage(this.message).subscribe();
-    // 🧠 Met à jour l'état
     this.allMessage.update(messages => [...messages, newMessage]);
 
-    // 💬 Envoie au backend
     this.chatService.sendQuestionWithImage({ question, image: file }).subscribe(
       (data: any) => {
         // 🛠 Mets à jour le message avec la réponse
@@ -157,7 +154,6 @@ export class MessageComponent implements OnInit, OnChanges {
       }
     );
 
-    // 🧹 Vide l'input
     this.formGroup.reset();
   }
 

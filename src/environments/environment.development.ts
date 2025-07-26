@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiURL: ''
+    apiURL: 'https://gwaikm-dev.onrender.com'
 };
