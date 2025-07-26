@@ -1,1 +1,14 @@
-<p>discussion works!</p>
+<div class="w-full h-max flex justify-center items-center">
+    <div class="flex justify-start items-center flex-col  w-5/6 sm:w-2/3 lg:w-1/2 h-max gap-8">
+        <div class="question w-full flex justify-end items-end">
+            <div class="question-item w-max-[500px] h-max bg-message-surface w-max px-4 py-2">
+                <p>{{ discussion().question }}</p>
+            </div>
+        </div>
+        <div class="reponse flex justify-start items-start flex-col w-full relative">
+            <div class="reponse-item w-full px-4 py-2 text-left">
+             <markdown [data]="reponse()"> </markdown>                
+            </div>
+        </div>
+    </div>
+</div>

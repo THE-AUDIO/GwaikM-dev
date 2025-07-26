@@ -1,1 +1,86 @@
-<p>message works!</p>
+<div class="w-full h-full flex justify-start items-center flex-col relative text-text-static roboto p-2 ">
+    <div class="z-10 h-[8%] w-full flex justify-between items-center p-2 relative overflow-hidden">
+
+        <div class="w-1/2 flex justify-start items-center gap-4">
+            <span (click)="toogleSideBar()"
+                class="hover:bg-message-surface p-2 rounded-full cursor-pointer transition-colors ease-linear duration-300 flex lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-layout-sidebar-inset-reverse h-5 w-5 fill-light "
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M2 2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z" />
+                    <path d="M13 4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z" />
+                </svg>
+            </span>
+            <p class="font-semibold text-lg lg:text-2xl">NandraChat</p>
+        </div>
+        <div class="w-1/2 flex justify-end items-center">
+            <span class="relative h-6 w-6 lg:h-8 lg:w-8 rounded-full overflow-hidden">
+                <img ngSrc="/images/pdp.jpeg" fill alt="photo de profil">
+            </span>
+        </div>
+        <span *ngIf="reponseState" class="w-anim absolute w-full h-[2px] lg:h-1 bottom-2 bg-accent"></span>
+    </div>
+    <div #scrollContainer
+        class="z-10 max-h-[70%] lg:max-h-[75%] discussion flex justify-center items-center flex-col w-full h-[80%] overflow-y-auto gap-4 relative ">
+        <div class="flex justify-start items-center flex-col w-full h-full overflow-y-auto gap-4"
+            *ngIf="this.noQuestionSendState">
+            @for (item of allMessage(); track $index) {
+            <app-discusion class="w-full" [discussion]="item"></app-discusion>
+            }
+        </div>
+        <div class=" h-full w-full flex justify-center items-center" *ngIf="!this.noQuestionSendState">
+            <p class="text-light text-2xl">{{this.welcomeMessage() | titlecase}}</p>
+        </div>
+    </div>
+
+    <div
+        class="z-10 input-container bg-message-surface w-[95%] sm:w-2/3 lg:w-1/2 h-[15%] lg:h-[12%] absolute bottom-8 h-min-[100px] rounded-xl shad overflow-hidden flex justify-center items-center">
+        <div class="w-full h-full p-2 relative flex justify-between items-center flex-col" [formGroup]="this.formGroup">
+            <textarea (keydown)="gererTouche($event)" type="text"
+                class="w-full h-2/3 bg-message-surface outline-none resize-none"
+                placeholder="Parler de n'importe quoi !" formControlName="message">
+            </textarea>
+            <div class="h-1/3 flex justify-between items-center w-full gap-10">
+                <div class="w-max flex justify-start items-center">
+                    <label
+                        class="relative group h-8 w-8 rounded-full bg-transparent hover:bg-bg-primary/80 flex justify-center items-center transition duration-300 ease-in-out cursor-pointer shadow hover:shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 fill-light pointer-events-none transition-transform duration-200"
+                            viewBox="0 0 16 16">
+                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                            <path
+                                d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z" />
+                        </svg>
+
+                        <input [formControl]="imageCtl" (change)="onImageSelected($event)" type="file" accept="image/*"
+                            class="absolute inset-0 opacity-0 w-full h-full cursor-pointer" />
+                    </label>    
+
+                </div>
+                <div class="h-full w-1/2 flex justify-start items-center ">
+                    <span *ngIf="imagePreview" class="h-12 w-12 flex justify-center items-center relative bg-bg-elevated-secondary p-1 rounded-sm overflow-hidden ">
+                            <img [src]="imagePreview" alt="Preview"
+                        class=" w-10 h-10 rounded object-cover shadow" />
+                    </span>
+                    
+                </div>
+                <div class="h-full flex justify-end items-center w-1/4 gap-10">
+                    <span
+                        class="h-8  w-8 rounded-full hover:bg-bg-primary flex justify-center items-center duration-300 ease-linear transition-colors cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="bi bi-mic-fill  h-4 w-4 fill-light cursor-pointer" viewBox="0 0 16 16">
+                            <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0z" />
+                            <path
+                                d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5" />
+                        </svg>
+                    </span>
+                    <svg (click)="this.SendQuestion()" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        class="bi bi-arrow-up-circle-fill h-8 w-8 fill-light cursor-pointer" viewBox="0 0 16 16">
+                        <path
+                            d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
