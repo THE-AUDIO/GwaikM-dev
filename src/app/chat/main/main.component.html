@@ -1,9 +1,0 @@
-<section class="flex justify-center items-center w-full h-[100dvh]">
-    <div [ngClass]="{'!left-0':this.sideBarState}"  class="transition-all duration-300 ease-in-out absolute z-30 -left-full lg:left-0 lg:relative lg:flex w-[13%]  min-w-[200px] h-full bg-bg-elevated-secondary">
-        <app-side-bar (sessionState)="getSessionState($event)" (sideBarState)="tooglesideBar($event)" class="w-full h-full"></app-side-bar>
-
-    </div>
-    <div class="w-full lg:w-[87%] h-full bg-bg-primary">
-        <app-message [sessionId]="sessionId"  (sideBarState)="tooglesideBar($event)"></app-message>
-    </div>
-</section>
