@@ -1,0 +1,17 @@
+.shad{
+    box-shadow: 0 0 .1rem #fff;
+}
+
+.w-anim {
+  animation: wd 2s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes wd {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;;
+  }
+}

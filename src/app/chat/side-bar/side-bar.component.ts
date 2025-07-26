@@ -1,7 +1,6 @@
-import { Component, inject, OnChanges, OnInit, output, signal, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject, OnInit, output } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
-import { AddMessage } from '../models/add-message.model';
 import { ChatService } from '../service/chat-service';
 import { TruncatePipe } from '../../truncate.pipe';
 import { CommonModule } from '@angular/common';

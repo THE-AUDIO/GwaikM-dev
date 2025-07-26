@@ -4,6 +4,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { AddMessage } from '../models/add-message.model';
 import { ChatService } from '../service/chat-service';
 import { DiscusionComponent } from '../discussion/discussion.component';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-message',
@@ -34,13 +35,7 @@ export class MessageComponent implements OnInit, OnChanges {
   scrollToBottom(): void {
     this.scrollContainer.nativeElement.scrollTo({ top: this.scrollContainer.nativeElement.scrollHeight, behavior: 'smooth' });
   }
-  welcome() {
-    this.reponseState = true;
-    this.chatService.welcome().subscribe((data: any) => {
-      this.welcomeMessage.set(data.message)
-      this.reponseState = false;
-    })
-  }
+
   incrementSesion(): number {
     const currentSession = this.chatService.currentSession();
     const newSession = currentSession + 1;
@@ -48,11 +43,28 @@ export class MessageComponent implements OnInit, OnChanges {
     return newSession;
   }
 
+
+    welcome() {
+      this.reponseState = true;
+      this.chatService.welcome().pipe(
+        catchError((e) => {
+          console.error('Erreur lors de la récupération du message:', e);
+          this.reponseState = false; 
+          this.welcomeMessage.set('erreur de connexion');
+           this.noQuestionSendState = false;
+          return of({ message: 'Une erreur est survenue' });
+        })
+      ).subscribe((data: any) => {
+        this.welcomeMessage.set(data.message);
+        this.reponseState = false;
+      });
+    }
+
+
   ngOnInit(): void {
     this.welcome();
     this.initForm();
     localStorage.setItem('themeState', 'no')
-
   }
 
 
