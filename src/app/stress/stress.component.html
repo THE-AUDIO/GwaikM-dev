@@ -1,1 +1,21 @@
-<p>stress works!</p>
+<body class="overflow-hidden"> 
+    <div class="container mx-auto h-screen flex flex-col justify-center items-center p-4">
+  <h1 class="text-4xl md:text-6xl font-bold mb-12 text-center text-gray-800">
+    <span class="crossed-out">Anti</span>-Bouton Stress
+  </h1>
+
+  <button id="mainButton" (click)="onMainButtonClick()"
+    class="bg-red-500 hover:bg-red-600 text-white font-bold py-6 px-12 rounded-full text-2xl shadow-lg transform transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none">
+    Cliquez pour Déstresser !
+  </button>
+
+  <p class="mt-8 text-gray-600 text-center max-w-md">
+    Scientifiquement prouvé* à réduire le stress de 0% (*pas scientifiquement prouvé)
+  </p>
+</div>
+
+<div id="errorContainer"></div>
+
+<!-- <audio id="errorSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio> -->
+<!-- <audio id="closeSound" src="https://assets.mixkit.co/sfx/preview/mixkit-software-interface-start-2574.mp3" preload="auto"></audio> -->
+</body>
