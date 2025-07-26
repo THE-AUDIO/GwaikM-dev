@@ -1,286 +1,292 @@
-<body class="bg-gradient-to-b from-purple-900 to-black min-h-screen text-white font-sans overflow-x-hidden">
-    <!-- Bandeau de pub absurde -->
-    <div class="bg-yellow-400 text-black text-center py-2 px-4 font-bold">
-        <marquee behavior="scroll" direction="left">
-            🚀 Sponsorisé par l'Association des Pangolins Anonymes - "Parce que même les écailles ont besoin d'amour" 🚀
-        </marquee>
+<body class="bg-white text-gray-900 min-h-screen font-sans">
+    <!-- Audio element -->
+    <audio id="bgMusic" loop>
+        <source src="Homealone.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- Floating speaker button -->
+    <div id="speakerBtn" class="speaker-btn text-gray-800 text-2xl p-3 rounded-full bg-gray-200 shadow-lg">
+        <i class="fas fa-volume-up" id="volumeIcon"></i>
+        <div class="absolute -inset-1 rounded-full border-2 border-gray-300 animate-ping opacity-75" style="animation-duration: 2s;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-6">Boîte à <span class="tool-name">outil</span></h1>
+            <p class="text-gray-600 italic">Des outils si inutiles qu'ils en deviennent essentiels</p>
+            
+            <!-- Language selector -->
+            <div class="flex justify-center space-x-4 mt-6" id="languageSelector">
+                <button onclick="changeLanguage('dog')" class="language-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full transition duration-200">
+                    <span class="fr">Langue de chien</span>
+                    <span class="dog hidden">Wouf Wouf</span>
+                    <span class="cat hidden">Miaou</span>
+                </button>
+                <button onclick="changeLanguage('cat')" class="language-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full transition duration-200">
+                    <span class="fr">Langue de chat</span>
+                    <span class="dog hidden">Wouf</span>
+                    <span class="cat hidden">Miaou Miaou</span>
+                </button>
+                <button onclick="changeLanguage('fr')" class="language-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full transition duration-200">
+                    <span class="fr">Français</span>
+                    <span class="dog hidden">Wouf</span>
+                    <span class="cat hidden">Miaou</span>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Tools grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Tool 1 -->
+            <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
+                <h2 class="text-2xl font-bold mb-3">Super Torch 9000</h2>
+                <p class="text-gray-700 mb-4 fr">Un projecteur de lumière si puissant qu'il éblouit même en plein jour. Parfait pour rien du tout.</p>
+                <p class="text-gray-700 mb-4 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
+                <p class="text-gray-700 mb-4 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
+                <a href="super-torch.html" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 fr">Allumer (ne fait rien)</a>
+                <a href="super-torch.html" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 dog hidden">Wouf Wouf</a>
+                <a href="super-torch.html" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 cat hidden">Miaou Miaou</a>
+            </div>
+            
+            <!-- Tool 2 -->
+            <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
+                <h2 class="text-2xl font-bold mb-3">Calculatrice</h2>
+                <p class="text-gray-700 mb-4 fr">Effectue des calculs aléatoires sans rapport avec vos besoins. Résultats garantis inexacts.</p>
+                <p class="text-gray-700 mb-4 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
+                <p class="text-gray-700 mb-4 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
+                <a (click)="gotoTool('calc')" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 fr">Calculer (ne fait rien)</a>
+                <a class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 dog hidden">Wouf Wouf</a>
+                <a class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 cat hidden">Miaou Miaou</a>
+            </div>
+            
+            <!-- Tool 3 -->
+            <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
+                <h2 class="text-2xl font-bold mb-3">Vertigo Man</h2>
+                <p class="text-gray-700 mb-4 fr">Fait tourner votre écran dans tous les sens pour un effet "montagnes russes" garanti.</p>
+                <p class="text-gray-700 mb-4 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
+                <p class="text-gray-700 mb-4 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou.</p>
+                <a href="vertigo.html" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 fr">Tourner (ne fait rien)</a>
+                <a href="vertigo.html" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 dog hidden">Wouf Wouf</a>
+                <a href="vertigo.html" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 cat hidden">Miaou Miaou</a>
+            </div>
+            
+            <!-- Tool 4 -->
+            <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
+                <h2 class="text-2xl font-bold mb-3">Obi Wagwan</h2>
+                <p class="text-gray-700 mb-4 fr">Générateur de phrases pseudo-mystiques sans aucun sens. Sagesse aléatoire incluse.</p>
+                <p class="text-gray-700 mb-4 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
+                <p class="text-gray-700 mb-4 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
+                <a (click)="gotoTool('chat')" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 fr">Éclairer (ne fait rien)</a>
+                <a class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 dog hidden">Wouf Wouf</a>
+                <a class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 cat hidden">Miaou Miaou</a>
+            </div>
+            
+            <!-- Tool 5 -->
+            <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md transition duration-300">
+                <h2 class="text-2xl font-bold mb-3">Anti-Stress</h2>
+                <p class="text-gray-700 mb-4 fr">Crée artificiellement des situations stressantes pour vous préparer aux vraies. Paradoxe inclus.</p>
+                <p class="text-gray-700 mb-4 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
+                <p class="text-gray-700 mb-4 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
+                <a (click)="this.gotoTool('stress')" class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 fr">Stresser (ne fait rien)</a>
+                <a  class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 dog hidden">Wouf Wouf</a>
+                <a  class="block w-full bg-gray-800 text-white text-center py-2 rounded hover:bg-gray-700 transition duration-200 cat hidden">Miaou Miaou</a>
+            </div>
+            
+            <!-- Empty slot -->
+            <div class="tool-card bg-gray-100 p-6 rounded-lg shadow-md border-2 border-dashed border-gray-400 flex items-center justify-center">
+                <div class="text-center">
+                    <i class="fas fa-question-circle text-4xl text-gray-400 mb-2"></i>
+                    <p class="text-gray-500 italic fr">Emplacement vide pour un futur outil encore plus inutile</p>
+                    <p class="text-gray-500 italic dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf</p>
+                    <p class="text-gray-500 italic cat hidden">Miaou miaou miaou miaou miaou miaou miaou</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User reviews -->
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-12">
+            <h2 class="text-2xl font-bold mb-4 fr">Avis des utilisateurs (totalement authentiques)</h2>
+            <h2 class="text-2xl font-bold mb-4 dog hidden">Wouf Wouf Wouf Wouf Wouf</h2>
+            <h2 class="text-2xl font-bold mb-4 cat hidden">Miaou Miaou Miaou Miaou</h2>
+            
+            <div class="space-y-4">
+                <!-- Review 1 -->
+                <div class="comment bg-white p-4 rounded shadow">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                            <i class="fas fa-user text-gray-600"></i>
+                        </div>
+                        <span class="font-bold fr">Jean-Dupont</span>
+                        <span class="font-bold dog hidden">Wouf</span>
+                        <span class="font-bold cat hidden">Miaou</span>
+                        <div class="ml-auto flex">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 fr">J'ai utilisé la calculatrice pour mes impôts. Maintenant je suis ruiné. 5 étoiles !</p>
+                    <p class="text-gray-700 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
+                    <p class="text-gray-700 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="comment bg-white p-4 rounded shadow">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                            <i class="fas fa-user text-gray-600"></i>
+                        </div>
+                        <span class="font-bold fr">Marie-Tournevis</span>
+                        <span class="font-bold dog hidden">Wouf Wouf</span>
+                        <span class="font-bold cat hidden">Miaou Miaou</span>
+                        <div class="ml-auto flex">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-gray-300"></i>
+                            <i class="fas fa-star text-gray-300"></i>
+                            <i class="fas fa-star text-gray-300"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 fr">L'Anti-Stress m'a tellement stressé que j'ai cassé mon clavier. Moyennement efficace.</p>
+                    <p class="text-gray-700 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
+                    <p class="text-gray-700 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="comment bg-white p-4 rounded shadow">
+                    <div class="flex items-center mb-2">
+                        <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                            <i class="fas fa-user text-gray-600"></i>
+                        </div>
+                        <span class="font-bold fr">Bob-L'Éponge</span>
+                        <span class="font-bold dog hidden">Wouf Wouf Wouf</span>
+                        <span class="font-bold cat hidden">Miaou Miaou Miaou</span>
+                        <div class="ml-auto flex">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-gray-300"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 fr">Super Torch 9000 a brûlé mes rétines. Maintenant je vois des couleurs partout. Génial !</p>
+                    <p class="text-gray-700 dog hidden">Wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf wouf.</p>
+                    <p class="text-gray-700 cat hidden">Miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou miaou.</p>
+                </div>
+            </div>
+            
+            <!-- Add review form -->
+            <div class="mt-6">
+                <h3 class="text-lg font-semibold mb-2 fr">Ajouter un commentaire</h3>
+                <h3 class="text-lg font-semibold mb-2 dog hidden">Wouf Wouf Wouf</h3>
+                <h3 class="text-lg font-semibold mb-2 cat hidden">Miaou Miaou Miaou</h3>
+                <div class="flex mb-2">
+                    <div class="flex mr-4">
+                        <span class="mr-1 fr">Note:</span>
+                        <span class="mr-1 dog hidden">Wouf:</span>
+                        <span class="mr-1 cat hidden">Miaou:</span>
+                        <select class="border rounded px-2">
+                            <option>5</option>
+                            <option>4</option>
+                            <option>3</option>
+                            <option>2</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+                </div>
+                <textarea class="w-full border rounded p-2 mb-2" rows="3" placeholder="Votre commentaire..."></textarea>
+                <button class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition duration-200 fr">Envoyer (ne fait rien)</button>
+                <button class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition duration-200 dog hidden">Wouf Wouf</button>
+                <button class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition duration-200 cat hidden">Miaou Miaou</button>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="text-center text-gray-600 text-sm">
+            <p class="fr">© 2025 Gwaik M'dev - Tous droits inexistants</p>
+            <p class="dog hidden">© 2025 Wouf Wouf - Wouf Wouf Wouf Wouf</p>
+            <p class="cat hidden">© 2025 Miaou Miaou - Miaou Miaou Miaou Miaou</p>
+        </footer>
     </div>
 
-    <!-- Header avec titre et stats inutiles -->
-    <header class="container mx-auto px-4 py-8 text-center">
-        <h1 class="text-6xl md:text-8xl font-extrabold mb-6 glow">
-            BOÎTE À INUTILE
-        </h1>
-        <p class="text-xl mb-8">L'outil ultime pour résoudre des problèmes qui n'existent pas</p>
-
-        <div class="bg-gray-800 rounded-lg p-4 mb-8 max-w-2xl mx-auto">
-            <h2 class="text-2xl font-bold mb-4">📊 Dashboard de Statistiques Inutiles</h2>
-            <div class="grid grid-cols-3 gap-4 text-center">
-                <div>
-                    <div class="text-4xl">∞</div>
-                    <div class="text-sm">Ressources gaspillées</div>
-                </div>
-                <div>
-                    <div class="text-4xl">0</div>
-                    <div class="text-sm">Problèmes résolus</div>
-                </div>
-                <div>
-                    <div class="text-4xl">100%</div>
-                    <div class="text-sm">Taux d'inutilité</div>
-                </div>
-            </div>
-            <div class="mt-4 text-xs text-gray-400">
-                Notre app économise 0.000001% de CO₂ en ne faisant rien.
-            </div>
-        </div>
-    </header>
-
-    <!-- Section des boutons principaux -->
-    <main class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Bouton Anti-Stress -->
-            <div
-                class="bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-6 shadow-xl transform hover:scale-105 transition-transform duration-300">
-                <div class="text-center">
-                    <div class="text-5xl mb-4">😱</div>
-                    <h2 class="text-2xl font-bold mb-2">ANTI-STRESS</h2>
-                    <p class="mb-4">Cliquez pour libérer votre stress... ou pas ! Notre algorithme breveté de création
-                        de fenêtres aléatoires garantit une expérience de stress optimale.</p>
-                    <button id="antiStressBtn"
-                        class="bg-black text-white px-6 py-3 rounded-full font-bold hover:bg-gray-800 transition">
-                        STRESSER-MOI
-                    </button>
-                </div>
-            </div>
-
-            <!-- Bouton Super-Torche -->
-            <div
-                class="bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl p-6 shadow-xl transform hover:scale-105 transition-transform duration-300">
-                <div class="text-center">
-                    <div class="text-5xl mb-4 spinning-star">🌟</div>
-                    <h2 class="text-2xl font-bold mb-2">SUPER-TORCHE</h2>
-                    <p class="mb-4">Allumez pour créer une nouvelle étoile dans l'univers ! (Résultats peuvent varier
-                        selon les lois de la physique et votre connexion internet.)</p>
-                    <button id="torchBtn"
-                        class="bg-black text-white px-6 py-3 rounded-full font-bold hover:bg-gray-800 transition">
-                        ALLUMER L'ÉTOILE
-                    </button>
-                </div>
-            </div>
-
-            <!-- Bouton Assistante High-Tech -->
-            <div
-                class="bg-gradient-to-br from-blue-500 to-teal-400 rounded-xl p-6 shadow-xl transform hover:scale-105 transition-transform duration-300">
-                <div class="text-center">
-                    <div class="text-5xl mb-4">🤖</div>
-                    <h2 class="text-2xl font-bold mb-2">ASSISTANTE HIGH-TECH</h2>
-                    <p class="mb-4">Notre IA de pointe est spécialement conçue pour ne rien comprendre à vos demandes.
-                        100% dumb, 100% fun !</p>
-                    <button id="assistantBtn"
-                        class="bg-black text-white px-6 py-3 rounded-full font-bold hover:bg-gray-800 transition">
-                        PARLER À L'IDIOTE
-                    </button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Section Paramètres -->
-    <section class="container mx-auto px-4 py-8 max-w-3xl">
-        <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
-            <h2 class="text-3xl font-bold mb-6 text-center">⚙️ PARAMÈTRES INUTILES</h2>
-
-            <!-- Langue -->
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold mb-3">🌍 Langue Fun-tastique</h3>
-                <p class="mb-3">Choisissez une langue totalement inutile pour votre expérience !</p>
-                <button id="languageBtn"
-                    class="bg-purple-600 text-white px-6 py-2 rounded-full font-bold hover:bg-purple-700 transition">
-                    Français (pour l'instant)
-                </button>
-            </div>
-
-            <!-- Inverser les boutons -->
-            <div class="mb-6">
-                <h3 class="text-xl font-semibold mb-3">🔄 Inverseur de Boutons</h3>
-                <p class="mb-3">Parce que tout est mieux à l'envers, non ?</p>
-                <button id="flipBtn"
-                    class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
-                    TOUT INVERSER
-                </button>
-            </div>
-
-            <!-- Volume (qui ne fait rien) -->
-            <div>
-                <h3 class="text-xl font-semibold mb-3">🔊 Volume Fantôme</h3>
-                <p class="mb-3">Appuyez pour entendre le silence absolu ! (Fonctionnalité premium non incluse)</p>
-                <button class="bg-gray-600 text-white px-6 py-2 rounded-full font-bold hover:bg-gray-700 transition">
-                    🔊 SILENCE ABSOLU
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer avec fausse mention légale -->
-    <footer class="container mx-auto px-4 py-8 text-center text-gray-400 text-sm">
-        <p>© 2023 Boîte à Inutile - Tous droits gaspillés</p>
-        <p class="mt-2">Notre plateforme Cloud-native utilise du Serverless pour optimiser la procrastination à
-            l'échelle mondiale.</p>
-        <p class="mt-1">En moyenne, les utilisateurs perdent 7h/jour grâce à notre algorithme breveté de distraction
-            proactive.</p>
-        <div class="mt-4">
-            <button id="playSound" class="text-xs bg-gray-700 px-3 py-1 rounded">🎵 Activer le thème épique</button>
-        </div>
-    </footer>
-
-    <!-- Audio pour le thème épique -->
-    <audio id="epicSound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
-
     <script>
-        // Variables pour le changement de langue
-        let languageState = 0;
-        const languages = [
-            { name: "🇫🇷 Français", class: "" },
-            { name: "🇬🇧 English", class: "" },
-            { name: "🇪🇸 Español", class: "" },
-            { name: "🐱 Miaou Miaou", class: "cat-font" },
-            { name: "👽 Blublunien", class: "alien-font" }
-        ];
-
-        // Dictionnaire de traductions
-        const translations = {
-            "BOÎTE À INUTILE": {
-                en: "USELESS BOX",
-                es: "CAJA INÚTIL",
-                cat: "Miaou Miaou Box",
-                alien: "Blublu Blu Box"
-            },
-            "L'outil ultime pour résoudre des problèmes qui n'existent pas": {
-                en: "The ultimate tool to solve problems that don't exist",
-                es: "La herramienta definitiva para resolver problemas que no existen",
-                cat: "Miaou miaou problems miaou",
-                alien: "Blublu blu blublu blu blublunien"
-            },
-            // Ajoutez d'autres traductions ici pour tous les textes clés
-            "STRESSER-MOI": {
-                en: "STRESS ME",
-                es: "ESTRESARME",
-                cat: "Miaou Miaou",
-                alien: "Blublu Blu"
-            },
-            "ALLUMER L'ÉTOILE": {
-                en: "LIGHT THE STAR",
-                es: "ENCENDER LA ESTRELLA",
-                cat: "Miaou Star",
-                alien: "Blublu Star"
-            },
-            "PARLER À L'IDIOTE": {
-                en: "TALK TO THE IDIOT",
-                es: "HABLAR CON LA IDIOTA",
-                cat: "Miaou Miaou",
-                alien: "Blublu Blu"
-            }
-        };
-
-        // Éléments à modifier
-        const elementsToTranslate = [
-            "h1", "h2", "h3", "p", "button", "div", "span", "marquee"
-        ];
-
-        // Texte original (pour revenir au français)
-        const originalTexts = {};
-        elementsToTranslate.forEach(selector => {
-            document.querySelectorAll(selector).forEach(el => {
-                if (el.textContent.trim()) {
-                    originalTexts[el.textContent] = el.textContent;
-                }
-            });
-        });
-
-        // Fonction de traduction principale
-        function translateText(text, languageIndex) {
-            const langCodes = ['fr', 'en', 'es', 'cat', 'alien'];
-            const langCode = langCodes[languageIndex];
-
-            // Si c'est une traduction connue
-            if (translations[text] && translations[text][langCode]) {
-                return translations[text][langCode];
-            }
-
-            // Traductions spéciales
-            if (languageIndex === 3) { // Chat
-                const words = text.split(' ');
-                return words.map(w => Math.random() > 0.3 ? 'Miaou' : w).join(' ');
-            }
-
-            if (languageIndex === 4) { // Alien
-                return text.split('').map(c =>
-                    ['a', 'e', 'i', 'o', 'u'].includes(c.toLowerCase()) ? 'blu' : c
-                ).join('');
-            }
-
-            return text; // Retourne le texte original si pas de traduction
-        }
-
-        // Bouton langue
-        document.getElementById('languageBtn').addEventListener('click', function () {
-            languageState = (languageState + 1) % languages.length;
-            this.textContent = languages[languageState].name;
-
-            // Appliquer la traduction à tous les éléments
-            elementsToTranslate.forEach(selector => {
-                document.querySelectorAll(selector).forEach(el => {
-                    if (el.textContent.trim()) {
-                        const original = originalTexts[el.textContent] || el.textContent;
-                        el.textContent = translateText(original, languageState);
-
-                        // Gestion des classes CSS
-                        languages.forEach((lang, idx) => {
-                            if (idx === languageState) {
-                                if (lang.class) el.classList.add(lang.class);
-                            } else {
-                                if (lang.class) el.classList.remove(lang.class);
-                            }
-                        });
-                    }
+        // Music control
+        const bgMusic = document.getElementById('bgMusic');
+        const speakerBtn = document.getElementById('speakerBtn');
+        const volumeIcon = document.getElementById('volumeIcon');
+        let isMusicPlaying = false;
+        
+        // Try to play music (many browsers block autoplay)
+        document.addEventListener('click', function() {
+            if (!isMusicPlaying) {
+                bgMusic.volume = 0.3;
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    volumeIcon.className = 'fas fa-volume-up';
+                }).catch(error => {
+                    console.log('Autoplay prevented:', error);
                 });
-            });
-        });
-
-        // Bouton anti-stress
-        document.getElementById('antiStressBtn').addEventListener('click', function () {
-            // Créer 3 fenêtres popup aléatoires
-            for (let i = 0; i < 3; i++) {
-                const left = Math.random() * (window.screen.width - 200);
-                const top = Math.random() * (window.screen.height - 200);
-                const width = 200 + Math.random() * 300;
-                const height = 200 + Math.random() * 300;
-
-                const popup = window.open('', '_blank', `width=${width},height=${height},left=${left},top=${top}`);
-                popup.document.write(`
-                    <!DOCTYPE html>
-                    <html>
-                    <head>
-                        <title>STRESSEZ-VOUS !</title>
-                        <style>
-                            body {
-                                background-color: ${['#ff0000', '#00ff00', '#0000ff', '#ffff00'][Math.floor(Math.random() * 4)]};
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                height: 100%;
-                                margin: 0;
-                                font-family: Arial, sans-serif;
-                                font-size: 24px;
-                                font-weight: bold;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        ${['VOUS ÊTES STRESSÉ ?', 'CLIQUEZ ICI POUR STRESSER PLUS', 'NE PANIQUEZ PAS !', 'OU PEUT-ÊTRE QUE SI...'][Math.floor(Math.random() * 4)]}
-                    </body>`)
             }
-        })
-    
-    </script >
-</body>
+        }, { once: true });
+        
+        // Speaker button click (toggle mute)
+        speakerBtn.addEventListener('click', function() {
+            if (bgMusic.muted) {
+                bgMusic.muted = false;
+                volumeIcon.className = 'fas fa-volume-up';
+            } else {
+                bgMusic.muted = true;
+                volumeIcon.className = 'fas fa-volume-mute';
+            }
+        });
+        
+        // Make speaker button run away from cursor
+        speakerBtn.addEventListener('mouseover', function() {
+            const maxX = window.innerWidth - speakerBtn.offsetWidth;
+            const maxY = window.innerHeight - speakerBtn.offsetHeight;
+            
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            
+            speakerBtn.style.left = newX + 'px';
+            speakerBtn.style.top = newY + 'px';
+        });
+        
+        // Language switcher
+        function changeLanguage(lang) {
+            // Hide all language versions
+            document.querySelectorAll('.fr, .dog, .cat').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Show selected language
+            document.querySelectorAll('.' + lang).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            // Play silly sound for animal languages
+            if (lang === 'dog') {
+                const bark = new Audio('https://www.soundjay.com/mechanical/sounds/dog-bark-01.mp3');
+                bark.play();
+            } else if (lang === 'cat') {
+                const meow = new Audio('https://www.soundjay.com/mechanical/sounds/cat-meow-1.mp3');
+                meow.play();
+            }
+        }
+        
+        // Position speaker button randomly on load
+        window.addEventListener('load', function() {
+            const maxX = window.innerWidth - speakerBtn.offsetWidth;
+            const maxY = window.innerHeight - speakerBtn.offsetHeight;
+            
+            const startX = Math.random() * maxX;
+            const startY = Math.random() * maxY;
+            
+            speakerBtn.style.left = startX + 'px';
+            speakerBtn.style.top = startY + 'px';
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=ta3k2/menu" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
