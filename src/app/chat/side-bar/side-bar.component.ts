@@ -31,7 +31,7 @@ export class SideBarComponent implements OnInit{
   clickHistoric(id:number){
     console.log(id);
     this.toogleSideBar()
-    this.sessionState.emit(id);
+    this.sessionState.emit(id + 1);
   }
 
   newChat(){
